@@ -1,0 +1,27 @@
+<%= form_for(child_pick) do |f| %>
+  <% if child_pick.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(child_pick.errors.count, "error") %> prohibited this child_pick from being saved:</h2>
+
+      <ul>
+      <% child_pick.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :child_id %>
+    <%= f.number_field :child_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :picked %>
+    <%= f.datetime_select :picked %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

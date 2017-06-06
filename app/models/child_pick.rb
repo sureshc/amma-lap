@@ -1,0 +1,2 @@
+class ChildPick < ApplicationRecord
+end
