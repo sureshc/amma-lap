@@ -10,5 +10,10 @@
   <%= @child.photo %>
 </p>
 
+<p>
+  <strong>Last Picked:</strong>
+  <%= @child.child_picks.first.picked %>
+</p>
+
 <%= link_to 'Edit', edit_child_path(@child) %> |
 <%= link_to 'Back', children_path %>
