@@ -7,8 +7,8 @@
 <table>
   <thead>
     <tr>
-      <th>Child</th>
       <th>Picked</th>
+      <th>Child</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +16,8 @@
   <tbody>
     <% @child_picks.order('created_at DESC').each do |child_pick| %>
       <tr>
+        <td><%= child_pick.picked.in_time_zone("Pacific Time (US & Canada)").strftime("%A %B %d: %l:%M %p %Z") %></td>
         <td><%= child_pick.child %></td>
-        <td><%= child_pick.picked %></td>
-        <td><%= link_to 'Destroy', child_pick, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
