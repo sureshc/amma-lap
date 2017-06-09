@@ -17,7 +17,7 @@
     <% @child_picks.order('created_at DESC').each do |child_pick| %>
       <tr>
         <td><%= child_pick.picked.in_time_zone("Pacific Time (US & Canada)").strftime("%A %B %d: %l:%M %p %Z") %></td>
-        <td><%= child_pick.child_id %></td>
+        <td><%= child_pick.child.name if child_pick.child %></td>
       </tr>
     <% end %>
   </tbody>
