@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Child Picks</h1>
+<h1>Child Pick History</h1>
+
+<%= link_to "Home", root_path %>
 
 <table>
   <thead>
@@ -12,18 +14,14 @@
   </thead>
 
   <tbody>
-    <% @child_picks.each do |child_pick| %>
+    <% @child_picks.order('created_at DESC').each do |child_pick| %>
       <tr>
-        <td><%= child_pick.child_id %></td>
+        <td><%= child_pick.child %></td>
         <td><%= child_pick.picked %></td>
-        <td><%= link_to 'Show', child_pick %></td>
-        <td><%= link_to 'Edit', edit_child_pick_path(child_pick) %></td>
         <td><%= link_to 'Destroy', child_pick, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Child Pick', new_child_pick_path %>
